@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 function Registration() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [conPassword, setConPassword] = useState();
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
@@ -13,7 +12,7 @@ function Registration() {
     axios
       .post("http://localhost:3001/register", { email, password })
       .then((res) => {
-        useNavigate("/login")
+        navigate("/login")
       } )
       .catch((err) => console.log(err));
   };
